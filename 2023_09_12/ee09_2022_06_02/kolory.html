@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Pomocnik CSS</title>
+    <link rel="stylesheet" href="./styl2.css">
+</head>
+<body>
+    <div id="container">
+        <nav>
+            <div id="left">
+                <h1>Pomocnik CSS</h1>
+            </div>
+            <div id="right">
+                <ul>
+                    <li>
+                        <a href="./kolory.html">Kolory</a>
+                    </li>
+                    <li>
+                        <a href="./czcionki.html">Czcionki</a>
+                    </li>
+                    <li>
+                        <a href="./style.html">Style</a>
+                    </li>
+                    <li>
+                        <a href="https://www.w3schools.com/css/" target="_blank">Pomoc</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <main>
+            <h2>
+                Podaj składową H koloru w kodzie HSL
+            </h2>
+            <p>
+                0 do 30 czerwienie, do 60 żółcie, do 150 zielenie, do 250 niebieskie, do 360 fiolet i purpura
+            </p>
+            <img src="./kolory.jpg" alt="Przestrzeń barw HSL">
+            <br>
+            <input type="number" max="360" placeholder="0 - 360" id="field">
+            <button id="generate">Generuj paletę</button>
+            <table>
+                <tr>
+                    <td colspan="4" id="cell1">Kolor główny</td>
+                </tr>
+                <tr>
+                    <td id="cell2">kolor 2</td>
+                    <td id="cell3">kolor 3</td>
+                    <td id="cell4">kolor 4</td>
+                    <td id="cell5">kolor 5</td>
+                </tr>
+            </table>
+        </main>
+        <footer>
+            <p>
+                Autor: 00000000000
+            </p>
+        </footer>
+    </div>
+    <script>
+        const f = () => {
+            const fieldValue = document.querySelector('#field').value
+
+            document.querySelector('#cell1').style.backgroundColor = `hsl(${fieldValue}, 100%, 50%)`
+
+            document.querySelector('#cell2').style.backgroundColor = `hsl(${fieldValue}, 80%, 50%)`
+
+            document.querySelector('#cell3').style.backgroundColor = `hsl(${fieldValue}, 60%, 50%)`
+
+            document.querySelector('#cell4').style.backgroundColor = `hsl(${fieldValue}, 40%, 50%)`
+
+            document.querySelector('#cell5').style.backgroundColor = `hsl(${fieldValue}, 20%, 50%)`
+        }
+
+        document.querySelector('#generate').addEventListener('click', f)
+    </script>
+</body>
+</html>
