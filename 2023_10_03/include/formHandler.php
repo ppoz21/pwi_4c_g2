@@ -1,5 +1,7 @@
 <?php
 
+require_once './db.php';
+
 if (!isset($_POST['submit'])) {
     header('Location: ../');
 
@@ -33,6 +35,10 @@ if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
 $email = $_POST['email'];
 $message = $_POST['message'];
 
-// TODO: save to DB
+if (storeMessage($email, $message)) {
+    header("Location: ../contact.php?success=1");
+} else {
+    header("Location: ../contact.php?error=5");
+}
 
-header("Location: ../contact.php?success=1");
+die;

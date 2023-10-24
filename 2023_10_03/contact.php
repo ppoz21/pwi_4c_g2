@@ -30,6 +30,7 @@ if (isset($_GET['error'])) {
         '2' => 'Adres e-mail i/lub treść wiadomości nie mogą być puste!',
         '3' => 'Wiadomość musi mieć minimum 20 znaków',
         '4' => 'Podano niepoprawny adres e-mail',
+        '5' => 'Błąd przesyłania wiadomości',
         default => null
     };
 }
