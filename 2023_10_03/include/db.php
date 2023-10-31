@@ -50,3 +50,24 @@ function storeMessage(string $email, string $message): bool
 
     return $result;
 }
+
+function findAdminByLogin(string $login): ?array
+{
+    global $conn;
+
+    $query = sprintf(
+        'SELECT * FROM admin WHERE login = "%s" LIMIT 1',
+        $login
+    );
+
+    $result = $conn->query($query);
+
+    if ($row = $result->fetch_assoc())
+    {
+        $result->free_result();
+
+        return $row;
+    }
+
+    return null;
+}
