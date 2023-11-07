@@ -71,3 +71,22 @@ function findAdminByLogin(string $login): ?array
 
     return null;
 }
+
+function getContactMessages(): array
+{
+    global $conn;
+
+    $messages = [];
+
+    $sql = 'SELECT * FROM contact_messages';
+
+    $result = $conn->query($sql);
+
+    while ($row = $result->fetch_assoc()) {
+        $messages[] = $row;
+    }
+
+    $result->free_result();
+
+    return $messages;
+}

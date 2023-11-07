@@ -1,6 +1,10 @@
 <?php
 session_start();
 
+require_once '../include/db.php';
+
+$messagesArr = getContactMessages();
+
 if (!isset($_SESSION['admin_name'])) {
     header('Location: ./panel/login.php');
     die;
@@ -20,7 +24,16 @@ require_once '../include/head.php';
     require_once './include/nav.php'
     ?>
     <div class="container py-5">
-        <h1>Hello panel</h1>
+        <h1>New contact messages</h1>
+        <div class="table-responsive">
+            <?php
+            include_once './include/messagesTable.php';
+            ?>
+        </div>
+
+        <?php
+        include_once './include/messagesGrid.php';
+        ?>
     </div>
 </div>
 </body>
